@@ -57,18 +57,53 @@ export default function IntroSection() {
           viewport={{ once: true }}
           className="flex justify-center gap-3 mt-8 flex-wrap"
         >
-          <span className="tag tag-red">Couples</span>
-          <span className="tag tag-yel">Maternity</span>
-          <span className="tag tag-blu">Newborn</span>
-          <span className="tag tag-grn">Family</span>
+          {['Couples', 'Maternity', 'Newborn', 'Family'].map((tag, i) => (
+            <motion.span 
+              key={tag}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 + i * 0.1 }}
+              whileHover={{ scale: 1.1, rotate: i % 2 === 0 ? 2 : -2 }}
+              className={`tag ${tag === 'Couples' ? 'tag-red' : tag === 'Maternity' ? 'tag-yel' : tag === 'Newborn' ? 'tag-blu' : 'tag-grn'}`}
+            >
+              {tag}
+            </motion.span>
+          ))}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-6 mt-16 items-center">
-          <img src="https://images.pexels.com/photos/3225528/pexels-photo-3225528.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Detail shot" className="w-full h-[400px] object-cover rounded-[32px] hidden md:block" loading="lazy" referrerPolicy="no-referrer" />
-          <div className="overflow-hidden rounded-[32px] md:rounded-[200px_200px_32px_32px] h-[400px] md:h-[550px]">
+          <motion.img 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            src="https://images.pexels.com/photos/3225528/pexels-photo-3225528.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Detail shot" 
+            className="w-full h-[400px] object-cover rounded-[32px] hidden md:block shadow-lg" 
+            loading="lazy" 
+            referrerPolicy="no-referrer" 
+          />
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="overflow-hidden rounded-[32px] md:rounded-[200px_200px_32px_32px] h-[400px] md:h-[550px] shadow-2xl"
+          >
             <img ref={centerImgRef} src="https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Couple laughing" className="w-full h-[120%] -top-[10%] relative object-cover" loading="lazy" referrerPolicy="no-referrer" />
-          </div>
-          <img src="https://images.pexels.com/photos/3319333/pexels-photo-3319333.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Baby detail" className="w-full h-[400px] object-cover rounded-[32px] hidden md:block" loading="lazy" referrerPolicy="no-referrer" />
+          </motion.div>
+          <motion.img 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+            src="https://images.pexels.com/photos/3319333/pexels-photo-3319333.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Baby detail" 
+            className="w-full h-[400px] object-cover rounded-[32px] hidden md:block shadow-lg" 
+            loading="lazy" 
+            referrerPolicy="no-referrer" 
+          />
         </div>
       </div>
     </section>

@@ -63,10 +63,17 @@ export default function ServicesSection() {
             </div>
             <ul className="list-none mb-12 flex-grow space-y-4">
               {svc.features.map((feat, j) => (
-                <li key={j} className="flex items-start gap-3 text-[0.95rem]">
+                <motion.li 
+                  key={j} 
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 + (i * 0.1) + (j * 0.05) }}
+                  className="flex items-start gap-3 text-[0.95rem]"
+                >
                   <span className="block w-1.5 h-1.5 rounded-full bg-[var(--accent-orange)] mt-1.5 shrink-0"></span>
                   {feat}
-                </li>
+                </motion.li>
               ))}
             </ul>
             <Link to="/#contact" className={`inline-flex items-center justify-center px-6 py-3 rounded-full font-sans text-[0.95rem] font-medium transition-all duration-200 w-full text-center ${svc.dark ? 'bg-white text-[var(--text-dark)] hover:bg-gray-100' : 'bg-[var(--bg-pill)] text-[var(--text-dark)] hover:bg-[var(--bg-pill-hover)]'}`}>

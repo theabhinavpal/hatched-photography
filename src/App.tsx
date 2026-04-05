@@ -56,10 +56,12 @@ function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-[10vw] flex justify-between items-center gap-4">
           <Link to="/" className="flex items-center shrink-0 group">
-            <img 
+            <motion.img 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               src="https://ais-pre-jgleqqkxt6hb5vtom5pwjr-549545075016.asia-southeast1.run.app/logo.png" 
               alt="Hatched Photos Logo" 
-              className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-16 w-auto object-contain transition-transform"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "logo.png";
@@ -71,13 +73,14 @@ function Navbar() {
           <NavHeader className="hidden md:flex ml-auto" />
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <motion.button 
+            whileTap={{ scale: 0.9 }}
             className="md:hidden text-[#1A1A1A] p-2 -mr-2 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          </motion.button>
         </div>
       </header>
 
@@ -85,11 +88,11 @@ function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#F5EFEB] pt-28 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-[#F5EFEB]/98 backdrop-blur-xl pt-28 px-6 md:hidden"
           >
             <nav className="flex flex-col space-y-6 items-center">
               {[
@@ -102,15 +105,21 @@ function Navbar() {
                 { name: 'Newborn', href: '/#newborn' },
                 { name: 'Seniors', href: '/#seniors' },
                 { name: 'Contact', href: '/#contact' }
-              ].map((item) => (
-                <Link
+              ].map((item, i) => (
+                <motion.div
                   key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[#1A1A1A] text-2xl font-serif tracking-wide"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 }}
                 >
-                  {item.name}
-                </Link>
+                  <Link
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[#1A1A1A] text-3xl font-serif tracking-tight hover:text-[var(--accent-orange)] transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>

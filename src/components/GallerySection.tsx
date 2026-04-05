@@ -125,18 +125,27 @@ export default function GallerySection() {
         
         <DraggableContainer variant="masonry" className="bg-transparent">
           <GridBody>
-            {images.map((image) => (
+            {images.map((image, i) => (
               <GridItem
                 key={image.id}
-                className="relative h-48 w-32 md:h-80 md:w-56 rounded-[16px] overflow-hidden shadow-sm ring-1 ring-[var(--color-border)]"
+                className="relative h-48 w-32 md:h-80 md:w-56 rounded-[16px] overflow-hidden shadow-sm ring-1 ring-[var(--color-border)] group"
               >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="pointer-events-none absolute h-full w-full object-cover"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: (i % 6) * 0.1 }}
+                  className="w-full h-full"
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="pointer-events-none absolute h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                </motion.div>
               </GridItem>
             ))}
           </GridBody>
