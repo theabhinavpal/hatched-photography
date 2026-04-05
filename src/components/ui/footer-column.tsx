@@ -87,7 +87,7 @@ export default function Footer4Col() {
                 className="h-12 w-12 object-contain transition-transform group-hover:scale-110"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "logo.png";
+                  (e.target as HTMLImageElement).src = "images/logo.png";
                 }}
               />
               <span className="text-3xl font-serif italic">
