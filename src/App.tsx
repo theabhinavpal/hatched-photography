@@ -64,7 +64,7 @@ function Navbar() {
               className="h-16 w-auto object-contain transition-transform"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "logo.png";
+                (e.target as HTMLImageElement).src = "assets/logo.png";
               }}
             />
           </Link>
