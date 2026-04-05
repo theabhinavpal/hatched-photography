@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-bg: #F5EFEB;
+  --color-text: #1A1A1A;
+  --color-accent: #B08D8D;
+  --color-border: #E0D5D2;
+}
+
+:root {
+  --bg-white: #FFFFFF;
+  --bg-offwhite: #FAF9F7;
+  --bg-pill: #F2EFEA;
+  --bg-pill-hover: #EBE7E0;
+  
+  --text-dark: #3A3532;
+  --text-muted: #8A8581;
+  
+  --accent-orange: #E89A5E;
+  
+  --tag-red-bg: #FDF2F0; --tag-red-txt: #E57368;
+  --tag-yel-bg: #FDF8ED; --tag-yel-txt: #EBB668;
+  --tag-pur-bg: #F7F3FA; --tag-pur-txt: #9A7BC0;
+  --tag-blu-bg: #F0F6F9; --tag-blu-txt: #6BA4CA;
+  --tag-grn-bg: #F1F8F1; --tag-grn-txt: #7BBA82;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tag-red { background: var(--tag-red-bg); color: var(--tag-red-txt); }
+.tag-yel { background: var(--tag-yel-bg); color: var(--tag-yel-txt); }
+.tag-pur { background: var(--tag-pur-bg); color: var(--tag-pur-txt); }
+.tag-blu { background: var(--tag-blu-bg); color: var(--tag-blu-txt); }
+.tag-grn { background: var(--tag-grn-bg); color: var(--tag-grn-txt); }
+
+.striped-bg {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(210, 205, 199, 0.2) 4px,
+    rgba(210, 205, 199, 0.2) 5px
+  );
+}
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
