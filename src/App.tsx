@@ -65,7 +65,7 @@ function Navbar() {
               className="h-16 w-auto object-contain transition-transform"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "images/logo.png";
+                (e.target as HTMLImageElement).src = "http://www.hatchedphotos.com/wp-content/uploads/2022/02/Hatched-nest-e1643992848433.png";
               }}
             />
           </Link>

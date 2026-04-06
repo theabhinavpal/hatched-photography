@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 
 // --- The ArcGalleryHero Component ---
 type ArcGalleryHeroProps = {
@@ -60,30 +59,10 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
   const step = (endAngle - startAngle) / (count - 1);
 
   return (
-    <section className={`relative overflow-hidden bg-transparent min-h-[90vh] flex flex-col pt-32 ${className}`}>
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-[var(--color-accent)] opacity-10 blur-[120px] rounded-full"
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-[var(--accent-orange)] opacity-10 blur-[120px] rounded-full"
-        />
-      </div>
-
+    <section className={`relative overflow-hidden bg-[#F5EFEB] text-[#1A1A1A] min-h-screen flex flex-col ${className}`}>
       {/* Background ring container that controls geometry */}
       <div
-        className="relative mx-auto"
+        className="relative mx-auto mt-20"
         style={{
           width: '100%',
           // Give it a bit more height to prevent clipping
@@ -102,125 +81,97 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
             const y = Math.sin(angleRad) * dimensions.radius;
             
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 100, x: x, scale: 0.8 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0, 
-                  x: x, 
-                  scale: 1,
-                  transition: {
-                    delay: i * 0.1,
-                    duration: 0.8,
-                    ease: [0.23, 1, 0.32, 1]
-                  }
-                }}
-                className="absolute"
+                className="absolute opacity-0 animate-fade-in-up"
                 style={{
                   width: dimensions.cardSize,
-                  height: dimensions.cardSize,
-                  left: `calc(50%)`,
+                  height: dimensions.cardSize * 1.4, // Adjusted for portrait aspect ratio
+                  left: `calc(50% + ${x}px)`,
                   bottom: `${y}px`,
                   transform: `translate(-50%, 50%)`,
+                  animationDelay: `${i * 100}ms`,
+                  animationFillMode: 'forwards',
                   zIndex: count - i,
                 }}
               >
-                <motion.div 
-                  animate={{ 
-                    y: [0, -10, 0],
-                    rotate: [angle / 4, angle / 4 + 2, angle / 4],
-                  }}
-                  transition={{ 
-                    duration: 4 + Math.random() * 2, 
-                    repeat: Infinity, 
-                    ease: "easeInOut",
-                    delay: Math.random() * 2
-                  }}
-                  className="rounded-2xl shadow-xl overflow-hidden ring-1 ring-[var(--color-border)] bg-[var(--bg-white)] transition-transform hover:scale-110 w-full h-full cursor-pointer"
+                <div 
+                  className="rounded-2xl shadow-2xl overflow-hidden ring-1 ring-[#E0D5D2] bg-white transition-transform hover:scale-105 w-full h-full"
+                  style={{ transform: `rotate(${angle / 4 - 22.5}deg)` }}
                 >
                   <img
                     src={src}
                     alt={`Memory ${i + 1}`}
-                    className="block w-full h-full object-cover"
+                    className="block w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
                     draggable={false}
                     referrerPolicy="no-referrer"
+                    // Add a fallback in case an image fails to load
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://placehold.co/400x400/334155/e2e8f0?text=Memory`;
+                      (e.target as HTMLImageElement).src = `https://placehold.co/400x600/334155/e2e8f0?text=Hatched`;
                     }}
                   />
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             );
           })}
         </div>
       </div>
 
       {/* Content positioned below the arc */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-32 md:-mt-40 lg:-mt-52">
-        <div className="text-center max-w-2xl px-6">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="label flex justify-center"
-          >
-            Est. 2014
-          </motion.span>
-          
-          <h1 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] mb-8 text-[var(--text-dark)] overflow-hidden">
-            <motion.span
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 0.8, ease: [0.23, 1, 0.32, 1] }}
-              className="block"
-            >
-              Candid Moments,
-            </motion.span>
-            <motion.span
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 1, ease: [0.23, 1, 0.32, 1] }}
-              className="block text-[#B08D8D] italic"
-            >
-              Timeless Stories.
-            </motion.span>
+      <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-32 md:-mt-40 lg:-mt-48 pb-20">
+        <div className="text-center max-w-3xl px-6 opacity-0 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
+          <span className="label flex justify-center mb-6">Est. 2014</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light tracking-tight text-[#1A1A1A] leading-[1.1]">
+            Candid Moments, <br />
+            <span className="text-[#B08D8D] italic">Timeless Stories.</span>
           </h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.2, ease: [0.23, 1, 0.32, 1] }}
-            className="text-[1.1rem] md:text-[1.2rem] text-[var(--text-muted)] font-light max-w-lg mx-auto mb-10"
-          >
-            Capturing the beauty of real, unscripted life.
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.4, ease: [0.23, 1, 0.32, 1] }}
-            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <motion.a 
-              whileHover={{ scale: 1.05, backgroundColor: "var(--accent-orange)" }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact" 
-              className="inline-block w-full sm:w-auto bg-[var(--text-dark)] text-white border-none py-[1.2rem] px-[3rem] font-sans font-semibold uppercase tracking-[0.2em] text-[0.75rem] cursor-pointer transition-all duration-300 text-center shadow-lg hover:shadow-xl rounded-full"
-            >
+          <p className="mt-6 text-lg md:text-xl text-[#4A4A4A] font-light max-w-xl mx-auto leading-relaxed">
+            Capturing the beauty of real, unscripted life with an editorial eye and a documentary soul.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <button className="w-full sm:w-auto px-10 py-4 rounded-full bg-[#1A1A1A] text-white hover:bg-[var(--accent-orange)] transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 font-sans font-semibold uppercase tracking-widest text-xs">
               Book a Session
-            </motion.a>
-            <motion.a 
-              whileHover={{ scale: 1.05, borderColor: "var(--accent-orange)", color: "var(--accent-orange)" }}
-              whileTap={{ scale: 0.95 }}
-              href="#gallery" 
-              className="inline-block w-full sm:w-auto bg-transparent text-[var(--text-dark)] border border-[var(--text-dark)] py-[1.2rem] px-[3rem] font-sans font-semibold uppercase tracking-[0.2em] text-[0.75rem] cursor-pointer transition-all duration-300 text-center rounded-full"
-            >
+            </button>
+            <button className="w-full sm:w-auto px-10 py-4 rounded-full border border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-all duration-300 font-sans font-semibold uppercase tracking-widest text-xs">
               View Portfolio
-            </motion.a>
-          </motion.div>
+            </button>
+          </div>
         </div>
       </div>
+      
+      {/* CSS for animations */}
+      <style>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translate(-50%, 60%);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, 50%);
+          }
+        }
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation-name: fade-in-up;
+          animation-duration: 1.2s;
+          animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .animate-fade-in {
+          animation-name: fade-in;
+          animation-duration: 1.2s;
+          animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+      `}</style>
     </section>
   );
 };
