@@ -64,7 +64,7 @@ function Navbar() {
               className="h-16 w-auto object-contain transition-transform"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://media.istockphoto.com/id/1358844539/photo/3d-render-illustration-egg-with-crack-isolated-on-white-background-realistic-white-cracked.jpg?s=1024x1024&w=is&k=20&c=UK3fWy8IkVXi67M7mZ-aUr-_e8l9EC-lwn7TSbAIg5U=";
+                (e.target as HTMLImageElement).src = "https://github.com/theabhinavpal/hatched-photography/blob/main/images/logo.png?raw=true";
               }}
             />
           </Link>
