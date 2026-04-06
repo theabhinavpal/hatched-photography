@@ -105,37 +105,48 @@ export default function Portfolio() {
   return (
     <main className="relative h-screen w-full overflow-hidden bg-[#0F0F0F]">
       {/* Back to Home Button */}
-      <div className="absolute top-8 left-8 z-[60]">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+        className="absolute top-8 left-8 z-[60]"
+      >
         <Link 
           to="/" 
-          className="group flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10 transition-all duration-300"
+          className="group flex items-center gap-4 bg-white/5 hover:bg-white/15 backdrop-blur-xl px-6 py-3 rounded-full border border-white/10 transition-all duration-500 shadow-2xl"
         >
-          <ArrowLeft className="w-4 h-4 text-white group-hover:-translate-x-1 transition-transform" />
-          <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-white font-medium">Back to Home</span>
+          <ArrowLeft className="w-4 h-4 text-white group-hover:-translate-x-1.5 transition-transform duration-500" />
+          <span className="font-sans text-[0.7rem] uppercase tracking-[0.3em] text-white font-bold">Back to Home</span>
         </Link>
-      </div>
+      </motion.div>
 
       <DraggableContainer variant="masonry" className="bg-transparent">
         <GridBody>
-          {images.map((image) => (
+          {images.map((image, i) => (
             <GridItem
               key={image.id}
-              className="relative h-[28rem] w-[20rem] md:h-[40rem] md:w-[30rem]"
+              className="relative h-[28rem] w-[20rem] md:h-[40rem] md:w-[30rem] cursor-grab active:cursor-grabbing"
             >
-              <div className="group relative w-full h-full overflow-hidden rounded-sm">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? 1 : -1 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, delay: (i % 4) * 0.1, ease: [0.23, 1, 0.32, 1] }}
+                className="group relative w-full h-full overflow-hidden rounded-sm shadow-2xl"
+              >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="pointer-events-none absolute h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.5s] ease-out"
+                  className="pointer-events-none absolute h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[2s] ease-out"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-8 pointer-events-none">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                    <p className="text-white font-serif italic text-2xl mb-1">{image.alt}</p>
-                    <p className="text-white/50 font-sans text-[10px] uppercase tracking-widest">Hatched Photos • Lifestyle</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-10 pointer-events-none">
+                  <div className="translate-y-6 group-hover:translate-y-0 transition-transform duration-1000 ease-out">
+                    <p className="text-white font-serif italic text-3xl mb-2">{image.alt}</p>
+                    <p className="text-white/40 font-sans text-[0.7rem] uppercase tracking-[0.3em] font-bold">Hatched Photos • Lifestyle</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </GridItem>
           ))}
         </GridBody>

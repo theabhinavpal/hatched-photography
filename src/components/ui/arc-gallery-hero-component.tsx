@@ -158,29 +158,68 @@ export const ArcGalleryHero: React.FC<ArcGalleryHeroProps> = ({
 
       {/* Content positioned below the arc */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-6 -mt-32 md:-mt-40 lg:-mt-52">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.23, 1, 0.32, 1] }}
-          className="text-center max-w-2xl px-6"
-        >
-          <span className="label flex justify-center">Est. 2014</span>
-          <h1 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] mb-8 text-[var(--text-dark)]">
-            Candid Moments, <br />
-            <span className="text-[#B08D8D] italic">Timeless</span> Stories.
+        <div className="text-center max-w-2xl px-6">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="label flex justify-center"
+          >
+            Est. 2014
+          </motion.span>
+          
+          <h1 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] mb-8 text-[var(--text-dark)] overflow-hidden">
+            <motion.span
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 0.8, ease: [0.23, 1, 0.32, 1] }}
+              className="block"
+            >
+              Candid Moments,
+            </motion.span>
+            <motion.span
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 1, ease: [0.23, 1, 0.32, 1] }}
+              className="block text-[#B08D8D] italic"
+            >
+              Timeless Stories.
+            </motion.span>
           </h1>
-          <p className="text-[1.1rem] md:text-[1.2rem] text-[var(--text-muted)] font-light max-w-lg mx-auto mb-10">
+
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2, ease: [0.23, 1, 0.32, 1] }}
+            className="text-[1.1rem] md:text-[1.2rem] text-[var(--text-muted)] font-light max-w-lg mx-auto mb-10"
+          >
             Capturing the beauty of real, unscripted life.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#contact" className="inline-block w-full sm:w-auto bg-[var(--text-dark)] text-white border-none py-[1.2rem] px-[3rem] font-sans font-semibold uppercase tracking-[0.1em] text-[0.8rem] cursor-pointer transition-all duration-300 hover:bg-[#B08D8D] hover:scale-105 active:scale-95 text-center shadow-lg hover:shadow-xl">
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.4, ease: [0.23, 1, 0.32, 1] }}
+            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6"
+          >
+            <motion.a 
+              whileHover={{ scale: 1.05, backgroundColor: "var(--accent-orange)" }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact" 
+              className="inline-block w-full sm:w-auto bg-[var(--text-dark)] text-white border-none py-[1.2rem] px-[3rem] font-sans font-semibold uppercase tracking-[0.2em] text-[0.75rem] cursor-pointer transition-all duration-300 text-center shadow-lg hover:shadow-xl rounded-full"
+            >
               Book a Session
-            </a>
-            <a href="#gallery" className="inline-block w-full sm:w-auto bg-transparent text-[var(--text-dark)] border border-[var(--text-dark)] py-[1.2rem] px-[3rem] font-sans font-semibold uppercase tracking-[0.1em] text-[0.8rem] cursor-pointer transition-all duration-300 hover:bg-[var(--bg-pill)] hover:scale-105 active:scale-95 text-center">
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.05, borderColor: "var(--accent-orange)", color: "var(--accent-orange)" }}
+              whileTap={{ scale: 0.95 }}
+              href="#gallery" 
+              className="inline-block w-full sm:w-auto bg-transparent text-[var(--text-dark)] border border-[var(--text-dark)] py-[1.2rem] px-[3rem] font-sans font-semibold uppercase tracking-[0.2em] text-[0.75rem] cursor-pointer transition-all duration-300 text-center rounded-full"
+            >
               View Portfolio
-            </a>
-          </div>
-        </motion.div>
+            </motion.a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -32,19 +32,27 @@ export default function ServicesSection() {
       <div className="text-center max-w-[600px] mx-auto mb-16">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--text-dark)] mb-4"
+          className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--text-dark)] mb-4 overflow-hidden"
         >
-          Curated <em>collections</em>
+          <motion.span
+            initial={{ y: "100%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            className="block"
+          >
+            Curated <em>collections</em>
+          </motion.span>
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-          className="text-[1.125rem] text-[var(--text-muted)]"
+          className="text-[1.125rem] text-[var(--text-muted)] font-light"
         >
           Tailored experiences designed to preserve your specific season of life with intention and care.
         </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {services.map((svc, i) => (
           <motion.div 
             key={i}
@@ -52,16 +60,20 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.2, ease: [0.23, 1, 0.32, 1] }}
-            className={`p-12 rounded-[32px] flex flex-col relative overflow-hidden group transition-transform duration-500 hover:-translate-y-2 ${svc.dark ? 'bg-[var(--text-dark)] text-white' : 'bg-[var(--bg-offwhite)] text-[var(--text-dark)]'}`}
+            className={`p-12 rounded-[40px] flex flex-col relative overflow-hidden group transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl ${svc.dark ? 'bg-[var(--text-dark)] text-white' : 'bg-[var(--bg-offwhite)] text-[var(--text-dark)]'}`}
           >
-            <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-8 font-serif text-[1.5rem] ${svc.dark ? 'bg-[#4A4541] text-white' : 'bg-white text-[var(--accent-orange)]'}`}>
+            <motion.div 
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className={`w-16 h-16 rounded-full flex items-center justify-center mb-10 font-serif text-[1.75rem] shadow-md ${svc.dark ? 'bg-[#4A4541] text-white' : 'bg-white text-[var(--accent-orange)]'}`}
+            >
               {svc.id}
-            </div>
-            <h3 className="font-serif text-2xl mb-2">{svc.title}</h3>
-            <div className={`font-sans text-[1.1rem] mb-8 ${svc.dark ? 'text-[#A39E9A]' : 'text-[var(--text-muted)]'}`}>
+            </motion.div>
+            <h3 className="font-serif text-3xl mb-3">{svc.title}</h3>
+            <div className={`font-sans text-[1.2rem] mb-10 font-medium ${svc.dark ? 'text-[#A39E9A]' : 'text-[var(--text-muted)]'}`}>
               {svc.price}
             </div>
-            <ul className="list-none mb-12 flex-grow space-y-4">
+            <ul className="list-none mb-14 flex-grow space-y-5">
               {svc.features.map((feat, j) => (
                 <motion.li 
                   key={j} 
@@ -69,15 +81,15 @@ export default function ServicesSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 + (i * 0.1) + (j * 0.05) }}
-                  className="flex items-start gap-3 text-[0.95rem]"
+                  className="flex items-start gap-4 text-[1rem] font-light"
                 >
-                  <span className="block w-1.5 h-1.5 rounded-full bg-[var(--accent-orange)] mt-1.5 shrink-0"></span>
+                  <span className="block w-2 h-2 rounded-full bg-[var(--accent-orange)] mt-2 shrink-0 shadow-sm"></span>
                   {feat}
                 </motion.li>
               ))}
             </ul>
-            <Link to="/#contact" className={`inline-flex items-center justify-center px-6 py-3 rounded-full font-sans text-[0.95rem] font-medium transition-all duration-200 w-full text-center ${svc.dark ? 'bg-white text-[var(--text-dark)] hover:bg-gray-100' : 'bg-[var(--bg-pill)] text-[var(--text-dark)] hover:bg-[var(--bg-pill-hover)]'}`}>
-              Inquire
+            <Link to="/#contact" className={`inline-flex items-center justify-center px-8 py-4 rounded-full font-sans text-[0.85rem] font-semibold uppercase tracking-[0.2em] transition-all duration-300 w-full text-center shadow-lg hover:shadow-xl ${svc.dark ? 'bg-white text-[var(--text-dark)] hover:bg-[var(--accent-orange)] hover:text-white' : 'bg-[var(--text-dark)] text-white hover:bg-[var(--accent-orange)]'}`}>
+              Inquire Now
             </Link>
           </motion.div>
         ))}

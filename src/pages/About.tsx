@@ -22,7 +22,7 @@ export default function About() {
           <img 
             src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=1920&auto=format&fit=crop" 
             alt="Lifestyle family moment" 
-            className="w-full h-[120%] object-cover opacity-20"
+            className="w-full h-[120%] object-cover opacity-10"
             referrerPolicy="no-referrer"
           />
         </motion.div>
@@ -32,11 +32,28 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
           >
-            <span className="text-[10px] uppercase tracking-[0.4em] font-sans font-bold text-[#B08D8D] mb-8 block">My Philosophy</span>
-            <h2 className="font-serif text-5xl md:text-7xl mb-10 italic text-[#2C2C2C] leading-tight">
-              Photography that <br /> feels real
+            <span className="text-[10px] uppercase tracking-[0.5em] font-sans font-bold text-[#B08D8D] mb-8 block">My Philosophy</span>
+            <h2 className="font-serif text-5xl md:text-8xl mb-10 italic text-[#2C2C2C] leading-tight overflow-hidden">
+              <motion.span
+                initial={{ y: "100%" }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+                className="block"
+              >
+                Photography that
+              </motion.span>
+              <motion.span
+                initial={{ y: "100%" }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                className="block"
+              >
+                feels real
+              </motion.span>
             </h2>
             <div className="space-y-8 text-xl font-sans font-light leading-relaxed text-[#4A4A4A] max-w-2xl mx-auto">
               <p>

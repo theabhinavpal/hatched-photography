@@ -11,6 +11,7 @@ import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Footer from './components/Footer';
 import NavHeader from './components/ui/nav-header';
+import CustomCursor from './components/ui/CustomCursor';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +65,7 @@ function Navbar() {
               className="h-16 w-auto object-contain transition-transform"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://github.com/theabhinavpal/hatched-photography/blob/main/images/logo.png?raw=true";
+                (e.target as HTMLImageElement).src = "images/logo.png";
               }}
             />
           </Link>
@@ -134,14 +135,25 @@ function MainContent() {
   const isPortfolioPage = location.pathname.toLowerCase().replace(/\/$/, "") === '/portfolio';
 
   return (
-    <div className="min-h-screen selection:bg-[#B08D8D] selection:text-white">
+    <div className="min-h-screen">
+      <CustomCursor />
       <div className="noise-overlay"></div>
       {!isPortfolioPage && <Navbar />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
       {!isPortfolioPage && <Footer />}
     </div>
   );

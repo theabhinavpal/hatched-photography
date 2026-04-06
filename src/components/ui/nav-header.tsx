@@ -28,17 +28,24 @@ export function NavHeader({ className }: { className?: string }) {
   return (
     <ul
       className={cn(
-        "relative flex w-fit rounded-full border border-[var(--color-border)] bg-[var(--bg-white)] p-1 shadow-sm",
+        "relative flex w-fit rounded-full border border-[var(--color-border)] bg-[var(--bg-white)]/80 backdrop-blur-md p-1.5 shadow-sm",
         className
       )}
       style={{ isolation: "isolate" }}
       onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
     >
       <Cursor position={position} />
-      {links.map((link) => (
-        <Tab key={link.name} setPosition={setPosition} href={link.href}>
-          {link.name}
-        </Tab>
+      {links.map((link, i) => (
+        <motion.div
+          key={link.name}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.05, duration: 0.5 }}
+        >
+          <Tab setPosition={setPosition} href={link.href}>
+            {link.name}
+          </Tab>
+        </motion.div>
       ))}
     </ul>
   );
@@ -67,19 +74,19 @@ const Tab: React.FC<{
           top: ref.current.offsetTop,
         });
       }}
-      className="relative z-10 block cursor-pointer mix-blend-difference"
+      className="relative z-10 block cursor-pointer"
     >
       {href.startsWith('/') && !href.includes('#') ? (
         <Link 
           to={href}
-          className="block px-3 py-2 text-[0.65rem] lg:text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-white md:px-4 md:py-2.5 transition-colors"
+          className="block px-4 py-2 text-[0.65rem] lg:text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[var(--text-dark)] hover:text-white transition-colors duration-300"
         >
           {children}
         </Link>
       ) : (
         <a 
           href={href}
-          className="block px-3 py-2 text-[0.65rem] lg:text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-white md:px-4 md:py-2.5 transition-colors"
+          className="block px-4 py-2 text-[0.65rem] lg:text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[var(--text-dark)] hover:text-white transition-colors duration-300"
         >
           {children}
         </a>
@@ -92,12 +99,12 @@ const Cursor = ({ position }: { position: any }) => {
   return (
     <motion.li
       animate={position}
-      className="absolute z-0 rounded-full bg-black pointer-events-none"
+      className="absolute z-0 rounded-full bg-[var(--text-dark)] pointer-events-none"
       transition={{ 
         type: "spring", 
-        stiffness: 400, 
-        damping: 30,
-        opacity: { duration: 0 }
+        stiffness: 350, 
+        damping: 35,
+        opacity: { duration: 0.2 }
       }}
     />
   );

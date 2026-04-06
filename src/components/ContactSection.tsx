@@ -11,10 +11,36 @@ export default function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
         >
-          <h2 className="font-serif text-[clamp(3rem,5vw,4.5rem)] text-[var(--text-dark)] leading-[1.1] mb-8">
-            Let's create<br/><em>something</em><br/>beautiful.
+          <h2 className="font-serif text-[clamp(3rem,5vw,4.5rem)] text-[var(--text-dark)] leading-[1.1] mb-8 overflow-hidden">
+            <motion.span
+              initial={{ y: "100%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+              className="block"
+            >
+              Let's create
+            </motion.span>
+            <motion.span
+              initial={{ y: "100%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+              className="block italic"
+            >
+              something
+            </motion.span>
+            <motion.span
+              initial={{ y: "100%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+              className="block"
+            >
+              beautiful.
+            </motion.span>
           </h2>
-          <p className="text-[1.125rem] text-[var(--text-muted)] mb-12 max-w-[400px]">
+          <p className="text-[1.125rem] text-[var(--text-muted)] mb-12 max-w-[400px] font-light">
             Whether you're expecting a new arrival, celebrating a milestone, or simply want to freeze this season of life — I'd love to hear from you.
           </p>
           

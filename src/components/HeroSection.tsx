@@ -4,16 +4,16 @@ import { ArcGalleryHero } from './ui/arc-gallery-hero-component';
 export default function HeroSection() {
   // An array of Unsplash image URLs related to photography, families, and couples
   const memoryImages = [
-    'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1542038383-7d8815194b15?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1433086966358-54859d0ed716?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=400&auto=format&fit=crop',
+    'http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Meekin-2021-10-24-003.jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Crain-2020-01-05-049.jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Crain-2020-01-05-055(pp_w900_h600).jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Hamby-2021-10-22-003(pp_w900_h600).jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3182-pp_gallery/Davis-2021-12-10-006(pp_w900_h600).jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2013/08/03-3182-pp_gallery/Williamson-Newborn-2018-04-10-014(pp_w900_h600).jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2022/02/24-3793-pp_gallery/McKenzie-20170319-005(pp_w900_h600).jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2022/02/24-3793-pp_gallery/Fogel-2021-12-11-014.jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2022/02/24-3793-pp_gallery/Diego-2020-06-04-031.jpg',
+    'http://www.hatchedphotos.com/wp-content/uploads/2022/02/24-3793-pp_gallery/Lindemann-2019-11-16-022(pp_w900_h600).jpg',
   ];
 
   return (

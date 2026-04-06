@@ -34,7 +34,7 @@ export default function AboutSection() {
         >
           <img 
             ref={imageRef}
-            src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&w=1000" 
+            src="https://www.hatchedphotos.com/wp-content/uploads/2022/02/Selfportrait-800.jpg" 
             alt="Photographer" 
             className="w-full h-[120%] -top-[10%] relative object-cover" 
             loading="lazy" 
@@ -57,16 +57,24 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-            className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--text-dark)] leading-[1.1] mb-8"
+            className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--text-dark)] leading-[1.1] mb-8 overflow-hidden"
           >
-            The <em>story</em> behind the lens.
+            <motion.span
+              initial={{ y: "100%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+              className="block"
+            >
+              The <em>story</em> behind the lens.
+            </motion.span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
-            className="text-[1.125rem] text-[var(--text-muted)] mb-8"
+            className="text-[1.125rem] text-[var(--text-muted)] mb-8 font-light"
           >
             I believe that the most beautiful moments are the ones you don't pose for. The wind in your hair, the subtle glance between partners, the chaotic joy of a toddler running wild.
           </motion.p>
@@ -75,7 +83,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="text-[1.125rem] text-[var(--text-muted)] mb-10"
+            className="text-[1.125rem] text-[var(--text-muted)] mb-10 font-light"
           >
             My approach is rooted in an editorial style — blending fine art composition with a documentary soul. No stiff poses, just gentle guidance to let your authentic dynamic unfold naturally.
           </motion.p>
@@ -85,7 +93,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
           >
-            <Link to="/about" className="inline-flex items-center justify-center px-8 py-4 rounded-full font-sans text-[0.95rem] font-medium transition-all duration-300 bg-[var(--bg-pill)] text-[var(--text-dark)] hover:bg-[var(--bg-pill-hover)] hover:scale-105 active:scale-95 shadow-sm hover:shadow-md">
+            <Link to="/about" className="inline-flex items-center justify-center px-10 py-4 rounded-full font-sans text-[0.85rem] font-semibold uppercase tracking-[0.2em] transition-all duration-300 bg-[var(--text-dark)] text-white hover:bg-[var(--accent-orange)] hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
               Read Full Journey
             </Link>
           </motion.div>

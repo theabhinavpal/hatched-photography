@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -27,6 +27,10 @@
   --tag-pur-bg: #F7F3FA; --tag-pur-txt: #9A7BC0;
   --tag-blu-bg: #F0F6F9; --tag-blu-txt: #6BA4CA;
   --tag-grn-bg: #F1F8F1; --tag-grn-txt: #7BBA82;
+
+  /* Premium Spacing */
+  --section-py: clamp(5rem, 10vw, 10rem);
+  --container-px: clamp(1.5rem, 5vw, 5rem);
 }
 
 body {
@@ -34,9 +38,16 @@ body {
   color: var(--color-text);
   font-family: var(--font-sans);
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  cursor: none; /* Custom cursor will be added */
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
 }
 
 ::selection {
@@ -50,34 +61,39 @@ html {
 
 h1, h2, h3, h4, h5, h6, .serif {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 300; /* Lighter weight for premium feel */
+  letter-spacing: -0.02em;
 }
 
 .label {
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
   color: var(--color-accent);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-.tag-red { background: var(--tag-red-bg); color: var(--tag-red-txt); }
-.tag-yel { background: var(--tag-yel-bg); color: var(--tag-yel-txt); }
-.tag-pur { background: var(--tag-pur-bg); color: var(--tag-pur-txt); }
-.tag-blu { background: var(--tag-blu-bg); color: var(--tag-blu-txt); }
-.tag-grn { background: var(--tag-grn-bg); color: var(--tag-grn-txt); }
+/* Premium Reveal Animation Utilities */
+.reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.reveal-text span {
+  display: inline-block;
+}
 
 .striped-bg {
   background: repeating-linear-gradient(
@@ -97,6 +113,6 @@ h1, h2, h3, h4, h5, h6, .serif {
   height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }

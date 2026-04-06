@@ -37,16 +37,25 @@ export default function IntroSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] tracking-[-0.01em] text-[var(--text-dark)] leading-[1.1] max-w-[900px] mx-auto"
+          className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] tracking-[-0.01em] text-[var(--text-dark)] leading-[1.1] max-w-[900px] mx-auto overflow-hidden"
         >
-          Photography that feels like <em>you</em>.
+          <motion.span
+            initial={{ y: "100%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            className="block"
+          >
+            Photography that feels like <em>you</em>.
+          </motion.span>
         </motion.h2>
         
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[1.125rem] text-[var(--text-muted)] max-w-[600px] mx-auto mt-8"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-[1.125rem] text-[var(--text-muted)] max-w-[600px] mx-auto mt-8 font-light"
         >
           I focus on capturing real, unposed moments — the laughter, the quiet in-between, and the connections that make your story unique.
         </motion.p>
@@ -55,7 +64,8 @@ export default function IntroSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-3 mt-8 flex-wrap"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex justify-center gap-4 mt-10 flex-wrap"
         >
           {['Couples', 'Maternity', 'Newborn', 'Family'].map((tag, i) => (
             <motion.span 
@@ -63,8 +73,8 @@ export default function IntroSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 + i * 0.1 }}
-              whileHover={{ scale: 1.1, rotate: i % 2 === 0 ? 2 : -2 }}
+              transition={{ delay: 0.5 + i * 0.1, type: "spring", stiffness: 200, damping: 15 }}
+              whileHover={{ scale: 1.1, rotate: i % 2 === 0 ? 3 : -3 }}
               className={`tag ${tag === 'Couples' ? 'tag-red' : tag === 'Maternity' ? 'tag-yel' : tag === 'Newborn' ? 'tag-blu' : 'tag-grn'}`}
             >
               {tag}
@@ -72,38 +82,59 @@ export default function IntroSection() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-6 mt-16 items-center">
-          <motion.img 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-8 mt-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50, scale: 0.9 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-            src="https://images.pexels.com/photos/3225528/pexels-photo-3225528.jpeg?auto=compress&cs=tinysrgb&w=800" 
-            alt="Detail shot" 
-            className="w-full h-[400px] object-cover rounded-[32px] hidden md:block shadow-lg" 
-            loading="lazy" 
-            referrerPolicy="no-referrer" 
-          />
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="overflow-hidden rounded-[32px] md:rounded-[200px_200px_32px_32px] h-[400px] md:h-[550px] shadow-2xl"
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="hidden md:block"
           >
-            <img ref={centerImgRef} src="https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Couple laughing" className="w-full h-[120%] -top-[10%] relative object-cover" loading="lazy" referrerPolicy="no-referrer" />
+            <motion.img 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              src="http://www.hatchedphotos.com/wp-content/uploads/2022/02/OLeary-600Square.jpg" 
+              alt="Detail shot" 
+              className="w-full h-[450px] object-cover rounded-[40px] shadow-2xl" 
+              loading="lazy" 
+              referrerPolicy="no-referrer" 
+            />
           </motion.div>
-          <motion.img 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8, y: 50 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
-            src="https://images.pexels.com/photos/3319333/pexels-photo-3319333.jpeg?auto=compress&cs=tinysrgb&w=800" 
-            alt="Baby detail" 
-            className="w-full h-[400px] object-cover rounded-[32px] hidden md:block shadow-lg" 
-            loading="lazy" 
-            referrerPolicy="no-referrer" 
-          />
+            transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
+            className="overflow-hidden rounded-[40px] md:rounded-[240px_240px_40px_40px] h-[450px] md:h-[650px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] relative"
+          >
+            <img 
+              ref={centerImgRef} 
+              src="http://www.hatchedphotos.com/wp-content/uploads/2022/02/Seger-600Square.jpg" 
+              alt="Couple laughing" 
+              className="w-full h-[130%] -top-[15%] absolute object-cover" 
+              loading="lazy" 
+              referrerPolicy="no-referrer" 
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
+            className="hidden md:block"
+          >
+            <motion.img 
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              src="http://www.hatchedphotos.com/wp-content/uploads/2022/02/Macy-600.jpg" 
+              alt="Baby detail" 
+              className="w-full h-[450px] object-cover rounded-[40px] shadow-2xl" 
+              loading="lazy" 
+              referrerPolicy="no-referrer" 
+            />
+          </motion.div>
         </div>
       </div>
     </section>

@@ -10,141 +10,149 @@ import { Link } from "react-router-dom";
 const images = [
   {
     id: 1,
-    alt: "Couple walking in a field",
-    src: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+    alt: "adult 1",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2022/02/24-3793-pp_gallery/Hannah-2020-12-03-043(pp_w900_h600).jpg",
   },
   {
     id: 2,
-    alt: "Family playing in the park",
-    src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=800&auto=format&fit=crop",
+    alt: "teen1",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2022/02/24-3793-pp_gallery/Fogel-2021-12-11-009(pp_w900_h600).jpg",
   },
   {
     id: 3,
-    alt: "Newborn baby sleeping",
-    src: "https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=800&auto=format&fit=crop",
+    alt: "adult2",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2022/02/24-3793-pp_gallery/Macy-2020-10-18-030-Edit.jpg",
   },
   {
     id: 4,
-    alt: "Maternity shoot on the beach",
-    src: "https://images.unsplash.com/photo-1542038383-7d8815194b15?q=80&w=800&auto=format&fit=crop",
+    alt: "Maternity shoot",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3182-pp_gallery/Kanowsky-2021-06-08-035(pp_w900_h600).jpg",
   },
   {
     id: 5,
-    alt: "Couple laughing together",
-    src: "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=800&auto=format&fit=crop",
+    alt: "family1",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Simmons-2021-11-08-008(pp_w900_h600).jpg",
   },
   {
     id: 6,
     alt: "Father holding his child",
-    src: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/06-3178-pp_gallery/West3(pp_w800_h1200).jpg",
   },
   {
     id: 7,
     alt: "Mother and daughter",
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/06-3178-pp_gallery/vanWickle-2016(pp_w800_h1200).jpg",
   },
   {
     id: 8,
-    alt: "Couple holding hands",
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=800&auto=format&fit=crop",
+    alt: "Couple with their children",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Crain-2020-01-05-055(pp_w900_h600).jpg",
   },
   {
     id: 9,
     alt: "Family walking in the woods",
-    src: "https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Derham-2020-11-20-033(pp_w900_h600).jpg",
   },
   {
     id: 10,
     alt: "Baby smiling",
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3182-pp_gallery/Davis-2021-12-10-009(pp_w900_h600).jpg",
   },
   {
     id: 11,
     alt: "Couple looking at each other",
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3182-pp_gallery/Davis-2021-12-10-057(pp_w900_h600).jpg",
   },
   {
     id: 12,
     alt: "Family at the beach",
-    src: "https://images.unsplash.com/photo-1542037104857-ffcb0b07c216?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Hutchinson-2020-12-04-005(pp_w900_h600).jpg",
   },
   {
     id: 13,
     alt: "Maternity silhouette",
-    src: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3182-pp_gallery/Kanowsky-2021-06-08-035(pp_w900_h600).jpg",
   },
   {
     id: 14,
     alt: "Newborn feet",
-    src: "https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/03-3182-pp_gallery/Maloy-2018-09-29-397(pp_w900_h600).jpg",
   },
   {
     id: 15,
     alt: "Couple in the city",
-    src: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/23-3178-pp_gallery/Derham-2020-11-20-033(pp_w900_h600).jpg",
   },
   {
     id: 16,
     alt: "Family picnic",
-    src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/06-3178-pp_gallery/Atkins(pp_w799_h532).jpg",
   },
   {
     id: 17,
     alt: "Mother holding baby",
-    src: "https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=800&auto=format&fit=crop",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/06-3178-pp_gallery/Garrett(pp_w799_h532).jpg",
   },
   {
     id: 18,
-    alt: "Couple kissing",
-    src: "https://images.unsplash.com/photo-1542038383-7d8815194b15?q=80&w=800&auto=format&fit=crop",
+    alt: "Dad with Daughter",
+    src: "http://www.hatchedphotos.com/wp-content/uploads/2013/08/06-3178-pp_gallery/Waghorn2(pp_w799_h532).jpg",
   },
 ];
 
 export default function GallerySection() {
   return (
     <section id="gallery" className="py-16 bg-[var(--bg-white)] overflow-hidden border-b border-[var(--color-border)]">
-      <div className="px-[5vw] max-w-[1400px] mx-auto mb-12">
+      <div className="px-[5vw] max-w-[1400px] mx-auto mb-16">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--text-dark)] text-center mb-4"
+          className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--text-dark)] text-center mb-4 overflow-hidden"
         >
-          Recent <em>Work</em>
+          <motion.span
+            initial={{ y: "100%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            className="block"
+          >
+            Recent <em>Work</em>
+          </motion.span>
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-          className="text-[1.125rem] text-[var(--text-muted)] text-center max-w-2xl mx-auto"
+          className="text-[1.125rem] text-[var(--text-muted)] text-center max-w-2xl mx-auto font-light"
         >
           Drag to explore some of my favorite recent moments captured.
         </motion.p>
       </div>
 
-      <div className="relative w-full h-[60vh] md:h-[80vh] border-y border-[var(--color-border)]">
+      <div className="relative w-full h-[60vh] md:h-[80vh] border-y border-[var(--color-border)] bg-[var(--bg-offwhite)]/30">
         {/* Overlay gradients to blend edges */}
-        <div className="absolute inset-y-0 left-0 w-[10vw] bg-gradient-to-r from-[var(--bg-white)] to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute inset-y-0 right-0 w-[10vw] bg-gradient-to-l from-[var(--bg-white)] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 left-0 w-[15vw] bg-gradient-to-r from-[var(--bg-white)] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-[15vw] bg-gradient-to-l from-[var(--bg-white)] to-transparent z-10 pointer-events-none"></div>
         
         <DraggableContainer variant="masonry" className="bg-transparent">
           <GridBody>
             {images.map((image, i) => (
               <GridItem
                 key={image.id}
-                className="relative h-48 w-32 md:h-80 md:w-56 rounded-[16px] overflow-hidden shadow-sm ring-1 ring-[var(--color-border)] group"
+                className="relative h-48 w-32 md:h-80 md:w-56 rounded-[24px] overflow-hidden shadow-md ring-1 ring-[var(--color-border)] group cursor-grab active:cursor-grabbing"
               >
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? 2 : -2 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: (i % 6) * 0.1 }}
+                  transition={{ duration: 1, delay: (i % 6) * 0.1, ease: [0.23, 1, 0.32, 1] }}
                   className="w-full h-full"
                 >
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="pointer-events-none absolute h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="pointer-events-none absolute h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </motion.div>
               </GridItem>
             ))}
@@ -152,8 +160,8 @@ export default function GallerySection() {
         </DraggableContainer>
       </div>
 
-      <div className="text-center mt-16 px-[5vw]">
-        <Link to="/portfolio" className="inline-flex items-center justify-center px-6 py-3 rounded-full font-sans text-[0.95rem] font-medium transition-all duration-200 bg-[var(--bg-pill)] text-[var(--text-dark)] hover:bg-[var(--bg-pill-hover)]">
+      <div className="text-center mt-20 px-[5vw]">
+        <Link to="/portfolio" className="inline-flex items-center justify-center px-10 py-4 rounded-full font-sans text-[0.85rem] font-semibold uppercase tracking-[0.2em] transition-all duration-300 bg-[var(--text-dark)] text-white hover:bg-[var(--accent-orange)] hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
           View Full Portfolio
         </Link>
       </div>
